@@ -3,7 +3,7 @@
 Outil de gestion de projet multi-entreprises (inspiré de Trello / Notion / ClickUp) : entreprises, utilisateurs, projets, tâches et tableau Kanban.
 
 Réalisé par **Loïc Restout** ([@vigoRz-c](https://github.com/vigoRz-c)) et
-**Léanne Basin** (BUT 3).
+**Léanne Basin** ([@leannebasin](https://github.com/leannebasin)) (BUT 3).
 
 Stack : **Node.js 22 + Express 5 + MongoDB 8**, le tout lancé par **Docker Compose**.
 
