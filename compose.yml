@@ -1,0 +1,33 @@
+name: taskhive
+
+services:
+  mongo:
+    image: mongo:8.0
+    restart: unless-stopped
+    env_file: config.env          # MONGO_INITDB_ROOT_USERNAME / PASSWORD
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "127.0.0.1:27017:27017"   # accès local uniquement (MongoDB Compass / mongosh)
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  app:
+    build: .
+    image: taskhive-app:1.0.0
+    restart: unless-stopped
+    env_file: config.env          # MONGO_URI, JWT_SECRET, ... : aucune valeur codée en dur
+    ports:
+      - "3000:3000"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  mongo-data:

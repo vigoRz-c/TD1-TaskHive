@@ -1,0 +1,19 @@
+{
+  "name": "taskhive",
+  "version": "1.0.0",
+  "description": "TaskHive - outil SaaS de gestion de projet multi-entreprises (TD1 R5 - MongoDB)",
+  "main": "src/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.17.0"
+  }
+}
